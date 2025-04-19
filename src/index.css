@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #000000;
+  --color-accent: #FF6A00;
+  --color-light: #F7F7F7;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply font-sans text-primary bg-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+
+  a {
+    @apply text-accent hover:text-accent/80 transition-colors duration-200;
+  }
+
+  button, 
+  a.btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-2xl font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 shadow-sm hover:shadow-md;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-white hover:bg-accent/90 hover:translate-y-[-2px];
+  }
+
+  .btn-secondary {
+    @apply bg-light text-primary hover:bg-light/80 border border-gray-200 hover:translate-y-[-2px];
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden;
+  }
+
+  .container {
+    @apply px-4 mx-auto max-w-7xl;
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2;
+  }
+}
+
+@layer components {
+  .module-card {
+    @apply card p-6 flex flex-col h-full hover:scale-[1.02] transition-transform duration-300;
+  }
+
+  .download-button {
+    @apply btn-secondary w-full md:w-auto flex items-center justify-between gap-3 mb-3 text-left rounded-xl;
+  }
+
+  .video-container {
+    @apply relative w-full pt-[56.25%] bg-gray-100 rounded-lg overflow-hidden;
+  }
+
+  .video-container iframe {
+    @apply absolute top-0 left-0 w-full h-full;
+  }
+}
